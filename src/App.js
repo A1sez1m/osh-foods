@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import About from './About';
+import About2 from './About2';
+import Categoria from './Categoria';
+import Countries from './Countries';
+import Bascet from './Bascet'
+import Search from './Search'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import {
+    Switch,
+    Route,
+  } from "react-router-dom";
+import Aisezim from './Aisezim';
+
+export default class App extends Component {
+    render() {
+        return (
+            <div>
+                <Aisezim/>
+                    <Switch>
+                        <Route path="/search/:id3" component={Search}/>
+                        <Route path="/bascet" component={Bascet}/>
+                        <Route path="/countries/:id2" component={Countries}/>
+                        <Route path='/about2/:id' component={About2}  />
+                        <Route path='/about/:title' component={About}  />
+                        <Route path="/">
+                            <Categoria/>
+                        </Route>
+                    </Switch>
+
+            </div>
+        )
+    }
 }
-
-export default App;
